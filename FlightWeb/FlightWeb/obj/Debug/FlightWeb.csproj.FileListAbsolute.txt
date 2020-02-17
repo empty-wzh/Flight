@@ -96,6 +96,5 @@ D:\工作资料\FlightGithub\FlightWeb\FlightWeb\bin\zh-Hans\Microsoft.Owin.Secu
 D:\工作资料\FlightGithub\FlightWeb\FlightWeb\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 D:\工作资料\FlightGithub\FlightWeb\FlightWeb\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\工作资料\FlightGithub\FlightWeb\FlightWeb\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
-D:\工作资料\FlightGithub\FlightWeb\FlightWeb\obj\Debug\FlightWeb.csprojResolveAssemblyReference.cache
 D:\工作资料\FlightGithub\FlightWeb\FlightWeb\obj\Debug\FlightWeb.dll
 D:\工作资料\FlightGithub\FlightWeb\FlightWeb\obj\Debug\FlightWeb.pdb
