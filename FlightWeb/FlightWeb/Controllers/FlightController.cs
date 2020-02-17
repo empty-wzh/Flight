@@ -11,6 +11,6 @@ namespace FlightWeb.Controllers
         public ActionResult Index()
         {
             return View();
-        }
+        } 
     }
 }
