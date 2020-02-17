@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>资料准备系统</title>
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+@{ 
+    string controllerName = ViewContext.RouteData.Route.GetRouteData(this.Context).Values["controller"].ToString();
+    controllerName = controllerName == null ? string.Empty : controllerName.ToLower();
+}
+<body class="layui-layout-body">
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header">
+            <div class="layui-logo">资料准备系统</div>
+            @*<ul class="layui-nav layui-layout-left">
+                <li class="layui-nav-item"><a href="">其他菜单</a></li>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">其它菜单</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">菜单A</a></dd>
+                    </dl>
+                </li>
+            </ul>*@
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="javascript:;">
+                        当前用户
+                    </a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="">个人资料</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="">退出</a></li>
+            </ul>
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a class="" href="javascript:;">资料准备</a>
+                        <dl class="layui-nav-child">
+                            <dd class="@(controllerName == "flight" ? "layui-this" : string.Empty)"><a href="/flight/index">航班管理</a></dd>
+                            <dd><a href="javascript:;">资料列表</a></dd>
+                            <dd><a href="javascript:;">资料查询</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">系统设置</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">权限设置</a></dd>
+                            <dd><a href="javascript:;">参数设置</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script src="~/Content/layui/layui.all.js"></script>
+        <div class="layui-body">
+            <!-- 内容主体区域 -->
+            @RenderBody()
+        </div>
+
+        @*<div class="layui-footer">
+            © Copyright 民航数据通信有限责任公司
+        </div>*@
+    </div>
+    @*<script>
+        //JavaScript代码区域
+        layui.use('element', function () {
+            var element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+
+            //监听导航点击
+            element.on('nav(demo)', function (elem) {
+                //console.log(elem)
+                layer.msg(elem.text());
+            });
+        });
+    </script>*@
+</body>
+</html>
