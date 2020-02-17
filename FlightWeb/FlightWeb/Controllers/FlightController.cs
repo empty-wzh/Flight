@@ -8,7 +8,7 @@ namespace FlightWeb.Controllers
 {
     public class FlightController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             return View();
         } 
