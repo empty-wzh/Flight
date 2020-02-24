@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link href="~/Content/layui/css/layui.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Content/layui/layui.all.js"></script>
+    <script type="text/javascript" language="javascript">
+        function login() {
+            $.ajax({
+                url: '/passport/dologin',
+                data: {
+                    userName: $('#txtUserName').val(),
+                    password: $('#txtPassword').val()
+                },
+                dataType: 'json',
+                type:'post',
+                success: function (data) {
+                    if (data && data.result) {
+                        layer.msg('登录成功');
+                        window.location.href = '/home/index';
+                    } else {
+                        layer.msg(data.errorMsg);
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body style="background-color:#808080">
+
+        <div style="margin:0 auto; width:400px; background-color:#eee; margin-top:200px; border-radius:5px; padding:30px;">
+            @*<img src="images/back.jpg" class="imgStyle">*@
+                <div style="text-align:center; width:100%; padding:5px;">
+                    <h2>航前资料准备系统</h2>
+                </div>
+            <br />
+                <div class="usernameWrapDiv">
+                    <div class="usernameLabel">
+                        <label>用户名:</label>
+                    </div>
+                    <div class="usernameDiv">
+                        <i class="layui-icon layui-icon-username adminIcon"></i>
+                        <input id="txtUserName" class="layui-input adminInput" autocomplete="off" type="text" name="username" placeholder="">
+                    </div>
+                </div>
+                <div class="usernameWrapDiv">
+                    <div class="usernameLabel">
+                        <label>密码:</label>
+                    </div>
+                    <div class="passwordDiv">
+                        <i class="layui-icon layui-icon-password adminIcon"></i>
+                        <input id="txtPassword" class="layui-input adminInput" autocomplete="off" type="password" name="password" placeholder="">
+                    </div>
+                </div>
+                @*<div class="usernameWrapDiv">
+                    <div class="usernameLabel">
+                        <label>验证码:</label>
+                    </div>
+                    <div class="cardDiv">
+                        <input id="loginCard" class="layui-input cardInput" type="text" name="card" placeholder="输入验证码">
+                    </div>
+                    <div class="codeDiv">
+                        <input id="loginCode" class="layui-input codeInput" type="button">
+                    </div>
+                </div>*@
+                <div class="usernameWrapDiv" style="text-align:center">
+                    @*<div class="submitLabel">
+                        <label>没有账号？<a href="#" id="loginRegister">点击咨询</a></label>
+                    </div>*@
+                    @*<div class="submitDiv" style="width:100%; text-align:center">*@
+                    <br />
+                        <input id="loginBtn" onclick="login();" type="button" class="submit layui-btn" value="登录" style="width:280px" />
+                    @*</div>*@
+                </div>
+        </div>
+</body>
+</html>
+

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace FlightWeb.Controllers
 {
-    public class FlightController : Controller
+    public class FlightController : BaseController
     {
         public ActionResult Index() 
         {
