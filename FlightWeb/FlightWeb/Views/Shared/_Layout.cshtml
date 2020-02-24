@@ -29,6 +29,8 @@
 @{ 
     string controllerName = ViewContext.RouteData.Route.GetRouteData(this.Context).Values["controller"].ToString();
     controllerName = controllerName == null ? string.Empty : controllerName.ToLower();
+    string actionName = ViewContext.RouteData.Route.GetRouteData(this.Context).Values["action"].ToString();
+    actionName = actionName == null ? string.Empty : actionName.ToLower();
 }
 <body class="layui-layout-body">
     <div class="layui-layout layui-layout-admin">
@@ -60,27 +62,22 @@
             <div class="layui-side-scroll">
                 <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
                 <ul class="layui-nav layui-nav-tree" lay-filter="test">
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">航班计划</a>
-                        <dl class="layui-nav-child">
-                            <dd class="@(controllerName == "flight" ? "layui-this" : string.Empty)"><a href="/flight/index">航班管理</a></dd>
-                            <dd><a href="javascript:;">资料列表</a></dd>
-                            <dd><a href="javascript:;">资料查询</a></dd>
-                        </dl>
-                    </li>
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">航班资料</a>
-                    </li>
-                    <li class="layui-nav-item layui-nav-itemed">
-                        <a class="" href="javascript:;">系统配置</a>
+                    <li class="layui-nav-item">
+                        <a class="@(controllerName == "flight" ? "layui-this" : string.Empty)" href="/flight/index">航班计划</a>
                     </li>
                     <li class="layui-nav-item">
+                        <a class="@(controllerName == "data" ? "layui-this" : string.Empty)" href="/data/index">航班资料</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a class="@(controllerName == "system" ? "layui-this" : string.Empty)" href="/system/index">系统配置</a>
+                    </li>
+                    <li class="@(controllerName == "user" ? "layui-nav-item layui-nav-itemed" : "layui-nav-item")">
                         <a href="javascript:;">用户管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">用户信息</a></dd>
-                            <dd><a href="javascript:;">用户权限</a></dd>
-                            <dd><a href="javascript:;">权限组</a></dd>
-                            <dd><a href="javascript:;">组织机构</a></dd>
+                            <dd class="@(controllerName == "user" && actionName == "index" ? "layui-this" : string.Empty)"><a href="/user/index">用户信息</a></dd>
+                            <dd class="@(controllerName == "user" && actionName == "userprivileges" ? "layui-this" : string.Empty)"><a href="/user/userprivileges">用户权限</a></dd>
+                            <dd class="@(controllerName == "user" && actionName == "privilegesgroup" ? "layui-this" : string.Empty)"><a href="/user/privilegesgroup">权限组</a></dd>
+                            <dd class="@(controllerName == "user" && actionName == "organization" ? "layui-this" : string.Empty)"><a href="/user/organization">组织机构</a></dd>
                         </dl>
                     </li>
                 </ul>
